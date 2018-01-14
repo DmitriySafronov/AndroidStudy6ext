@@ -63,21 +63,21 @@ public class ThirdActivity extends AppCompatActivity {
         int mPicture;
 
         Person(String mN, String mPh, int mPi) {
-            this.mName = mN;
-            this.mPhone = mPh;
-            this.mPicture = mPi;
+            mName = mN;
+            mPhone = mPh;
+            mPicture = mPi;
         }
     }
 
     public class MyAdapter extends BaseAdapter {
         // Утащено из интернетов и частично даже понято :)
 
-        ArrayList<Person> mData = new ArrayList<Person>();
+        ArrayList<Person> mDataLocal = new ArrayList<Person>();
         Context mContext;
 
         MyAdapter(Context mC, ArrayList<Person> mD) {
             if (mD != null) {
-                mData = mD;
+                mDataLocal = mD;
             }
             this.mContext = mC;
         }
@@ -85,13 +85,13 @@ public class ThirdActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             // TODO Auto-generated method stub
-            return mData.size();
+            return mDataLocal.size();
         }
 
         @Override
         public Object getItem(int num) {
             // TODO Auto-generated method stub
-            return mData.get(num);
+            return mDataLocal.get(num);
         }
 
         @Override
@@ -115,12 +115,12 @@ public class ThirdActivity extends AppCompatActivity {
 
             //Устанавливаем в каждую текствьюшку соответствующий текст
             // сначала заголовок
-            mContactName.setText(mData.get(i).mName);
+            mContactName.setText(mDataLocal.get(i).mName);
             // потом подзаголовок
-            mContactPhone.setText(mData.get(i).mPhone);
+            mContactPhone.setText(mDataLocal.get(i).mPhone);
 
             // Втыкаем картинку
-            mContactPicture.setImageResource(mData.get(i).mPicture);
+            mContactPicture.setImageResource(mDataLocal.get(i).mPicture);
 
             return mSomeView;
         }
